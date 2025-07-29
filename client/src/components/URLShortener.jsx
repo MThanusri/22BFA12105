@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField, Button, Typography, Box } from "@mui/material";
 import axios from "axios";
 import log from "../logger/logger";
+import "./../styles/urlShortener.css"; // CSS import
 
 function URLShortener() {
   const [url, setUrl] = useState("");
@@ -27,16 +28,50 @@ function URLShortener() {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h5">URL Shortener</Typography>
-      <TextField label="Long URL" fullWidth sx={{ my: 1 }} value={url} onChange={(e) => setUrl(e.target.value)} />
-      <TextField label="Validity (mins)" type="number" fullWidth sx={{ my: 1 }} value={validity} onChange={(e) => setValidity(e.target.value)} />
-      <TextField label="Custom Shortcode (optional)" fullWidth sx={{ my: 1 }} value={shortcode} onChange={(e) => setShortcode(e.target.value)} />
-      <Button variant="contained" onClick={handleSubmit}>Shorten</Button>
+    <Box className="url-shortener-container" sx={{ p: 3 }}>
+      <Typography variant="h5" className="url-shortener-title">URL Shortener</Typography>
+
+      <TextField
+        label="Long URL"
+        fullWidth
+        className="url-shortener-input"
+        sx={{ my: 1 }}
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+      />
+      <TextField
+        label="Validity (mins)"
+        type="number"
+        fullWidth
+        className="url-shortener-input"
+        sx={{ my: 1 }}
+        value={validity}
+        onChange={(e) => setValidity(e.target.value)}
+      />
+      <TextField
+        label="Custom Shortcode (optional)"
+        fullWidth
+        className="url-shortener-input"
+        sx={{ my: 1 }}
+        value={shortcode}
+        onChange={(e) => setShortcode(e.target.value)}
+      />
+      <Button
+        variant="contained"
+        className="url-shortener-button"
+        onClick={handleSubmit}
+      >
+        Shorten
+      </Button>
 
       {result && (
-        <Box mt={2}>
-          <Typography variant="body1">Short Link: <a href={result.shortLink} target="_blank" rel="noreferrer">{result.shortLink}</a></Typography>
+        <Box mt={2} className="result-box">
+          <Typography variant="body1">
+            Short Link:{" "}
+            <a href={result.shortLink} target="_blank" rel="noreferrer">
+              {result.shortLink}
+            </a>
+          </Typography>
           <Typography variant="body2">Expires at: {result.expiry}</Typography>
         </Box>
       )}

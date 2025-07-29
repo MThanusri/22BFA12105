@@ -1,0 +1,44 @@
+.url-stats-container {
+  background-color: #f9fbfd;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.url-stats-title {
+  color: #1976d2;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.url-stats-input {
+  background-color: white;
+}
+
+.url-stats-button {
+  background-color: #1976d2;
+  color: white;
+  margin-top: 10px;
+}
+
+.url-stats-button:hover {
+  background-color: #115293;
+}
+
+.stats-result-box {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.click-entry {
+  background-color: #eef6fd;
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-top: 0.5rem;
+  border-left: 4px solid #1976d2;
+}

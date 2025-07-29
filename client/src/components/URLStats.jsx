@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import axios from "axios";
 import log from "../logger/logger";
+import "./../styles/urlStats.css"; // CSS import added
 
 function URLStats() {
   const [shortcode, setShortcode] = useState("");
@@ -18,20 +19,36 @@ function URLStats() {
   };
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h5">URL Statistics</Typography>
-      <TextField label="Shortcode" fullWidth sx={{ my: 2 }} value={shortcode} onChange={(e) => setShortcode(e.target.value)} />
-      <Button variant="contained" onClick={handleFetch}>Fetch Stats</Button>
+    <Box className="url-stats-container" sx={{ p: 3 }}>
+      <Typography variant="h5" className="url-stats-title">URL Statistics</Typography>
+
+      <TextField
+        label="Shortcode"
+        fullWidth
+        className="url-stats-input"
+        sx={{ my: 2 }}
+        value={shortcode}
+        onChange={(e) => setShortcode(e.target.value)}
+      />
+
+      <Button
+        variant="contained"
+        className="url-stats-button"
+        onClick={handleFetch}
+      >
+        Fetch Stats
+      </Button>
 
       {stats && (
-        <Box mt={3}>
+        <Box mt={3} className="stats-result-box">
           <Typography variant="body1">Original URL: {stats.url}</Typography>
           <Typography variant="body2">Created At: {stats.createdAt}</Typography>
           <Typography variant="body2">Expires At: {stats.expiresAt}</Typography>
           <Typography variant="body2">Total Clicks: {stats.clicks}</Typography>
+
           <Typography variant="h6" mt={2}>Click History</Typography>
           {stats.clickDetails?.map((c, i) => (
-            <Box key={i} sx={{ border: "1px solid #ccc", my: 1, p: 1 }}>
+            <Box key={i} className="click-entry">
               <Typography>Time: {c.timestamp}</Typography>
               <Typography>Source: {c.referrer || "Direct"}</Typography>
               <Typography>Location: {c.location || "Unknown"}</Typography>
