@@ -1,5 +1,5 @@
 # 22BFA12105
-# 🔗 Affordmed Logger - URL Shortener Microservice
+# 🔗 Affordmed - URL Shortener Microservice
 
 This is a full-stack URL Shortener microservice built for the Affordmed pre-assessment. It allows users to shorten long URLs with optional custom shortcodes and provides analytics such as total clicks, expiration, and access details.
 
